@@ -177,6 +177,7 @@ public class Flags {
             "Will trigger a heap dump during if container shutdown times out",
             "Takes effect at redeployment",
             INSTANCE_ID);
+
     public static final UnboundBooleanFlag LOAD_CODE_AS_HUGEPAGES = defineFeatureFlag(
             "load-code-as-hugepages", false,
             List.of("baldersheim"), "2022-05-13", "2024-12-31",
@@ -491,6 +492,13 @@ public class Flags {
             List.of("hmusum"), "2024-06-10", "2024-08-10",
             "Whether to delete remote and local config sessions at the same time",
             "Takes effect immediately");
+
+    public static final UnboundBooleanFlag LEGACY_WAND_QUERY_PARSING = defineFeatureFlag(
+            "use-legacy-wand-query-parsing", true,
+            List.of("arnej"), "2023-07-26", "2025-12-31",
+            "If true, force leagy mode for weakAnd query parsing",
+            "Takes effect at redeployment?",
+            INSTANCE_ID);
 
     /** WARNING: public for testing: All flags should be defined in {@link Flags}. */
     public static UnboundBooleanFlag defineFeatureFlag(String flagId, boolean defaultValue, List<String> owners,

@@ -16,9 +16,27 @@ import com.yahoo.search.searchchain.Execution;
  */
 public final class ParserEnvironment {
 
+    public record LegacyQueryParsing(boolean keepImplicitAnds,
+                                     boolean markSegmentAnds,
+                                     boolean keepSegmentAnds,
+                                     boolean keepImplicitPhrases)
+    {
+        public LegacyQueryParsing() { this(false, false, false, false); }
+    }
+
     private IndexFacts indexFacts = new IndexFacts();
     private Linguistics linguistics = new SimpleLinguistics();
     private SpecialTokens specialTokens = SpecialTokens.empty();
+    private LegacyQueryParsing legacyQueryParsing = new LegacyQueryParsing();
+
+    public LegacyQueryParsing getLegacyQueryParsing() {
+        return legacyQueryParsing;
+    }
+
+    public ParserEnvironment setLegacyQueryParsing(LegacyQueryParsing lqp) {
+        this.legacyQueryParsing = lqp;
+        return this;
+    }
 
     public IndexFacts getIndexFacts() {
         return indexFacts;
@@ -54,6 +72,8 @@ public final class ParserEnvironment {
         if (context.getIndexFacts() != null)
             env.setIndexFacts(context.getIndexFacts());
 
+        env.setLegacyQueryParsing(context.schemaInfo().legacyQueryParsingFlags());
+
         if (context.getLinguistics() != null)
             env.setLinguistics(context.getLinguistics());
 
@@ -66,6 +86,7 @@ public final class ParserEnvironment {
     public static ParserEnvironment fromParserEnvironment(ParserEnvironment environment) {
         return new ParserEnvironment()
                 .setIndexFacts(environment.indexFacts)
+                .setLegacyQueryParsing(environment.legacyQueryParsing)
                 .setLinguistics(environment.linguistics)
                 .setSpecialTokens(environment.specialTokens);
     }
