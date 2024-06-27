@@ -494,7 +494,7 @@ public class Flags {
             "Takes effect immediately");
 
     public static final UnboundBooleanFlag LEGACY_WAND_QUERY_PARSING = defineFeatureFlag(
-            "use-legacy-wand-query-parsing", true,
+            "use-legacy-wand-query-parsing", false,
             List.of("arnej"), "2023-07-26", "2025-12-31",
             "If true, force leagy mode for weakAnd query parsing",
             "Takes effect at redeployment?",
