@@ -47,7 +47,7 @@ public class SchemaInfo {
     private final LegacyQueryParsing legacyQueryParsing;
 
     private static LegacyQueryParsing extractLQP(QrSearchersConfig qrSearchersConfig) {
-        var cfg = qrSearchersConfig.queryparsing().legacy();
+        var cfg = qrSearchersConfig.legacyQueryParsing();
         return new LegacyQueryParsing(cfg.keepImplicitAnds(),
                                       cfg.markSegmentAnds(),
                                       cfg.keepSegmentAnds(),

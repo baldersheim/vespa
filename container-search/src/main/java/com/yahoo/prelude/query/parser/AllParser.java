@@ -110,7 +110,7 @@ public class AllParser extends SimpleParser {
             if (legacyQueryParsing.keepSegmentAnds()) {
                 return false;
             } else if (legacyQueryParsing.markSegmentAnds()) {
-                // later: sand.setFoundInsideWeakAnd(weakAnd);
+                sand.shouldFoldIntoWand(weakAnd);
                 return false;
             }
             return true;
