@@ -53,27 +53,7 @@ public class TestOptions implements ConfigOptions {
     }
 
     @Override
-    public Optional<Integer> zookeeperClientPort() {
-        return Optional.empty();
-    }
-
-    @Override
-    public Optional<Long> sessionLifeTimeSecs() {
-        return Optional.empty();
-    }
-
-    @Override
     public Optional<Long> zookeeperBarrierTimeout() {
-        return Optional.empty();
-    }
-
-    @Override
-    public Optional<Integer> zookeeperElectionPort() {
-        return Optional.empty();
-    }
-
-    @Override
-    public Optional<Integer> zookeeperQuorumPort() {
         return Optional.empty();
     }
 
@@ -88,19 +68,6 @@ public class TestOptions implements ConfigOptions {
 
     @Override
     public Optional<Boolean> useVespaVersionInRequest() { return useVespaVersionInRequest; }
-
-    @Override
-    public Optional<String> loadBalancerAddress() { return Optional.empty(); }
-
-    @Override
-    public Optional<String> athenzDnsSuffix() {
-        return Optional.empty();
-    }
-
-    @Override
-    public Optional<String> ztsUrl() {
-        return Optional.empty();
-    }
 
     @Override
     public String zooKeeperSnapshotMethod() { return zooKeeperSnapshotMethod; }

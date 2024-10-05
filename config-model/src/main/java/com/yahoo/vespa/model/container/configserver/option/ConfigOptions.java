@@ -23,20 +23,12 @@ public interface ConfigOptions {
     Optional<Boolean> hostedVespa();
     ConfigServer[] allConfigServers();
     int[] configServerZookeeperIds();
-    Optional<Integer> zookeeperClientPort();
-    default String[] configModelPluginDirs() { return new String[0]; } // TODO: Remove when 8.404 is oldest version in use
-    Optional<Long> sessionLifeTimeSecs();
     Optional<Long> zookeeperBarrierTimeout(); //in seconds
-    Optional<Integer> zookeeperElectionPort();
-    Optional<Integer> zookeeperQuorumPort();
     Optional<String> environment();
     Optional<String> region();
     Optional<String> system();
     default Optional<String> cloud() { return Optional.empty(); }
     Optional<Boolean> useVespaVersionInRequest();
-    Optional<String> loadBalancerAddress();
-    Optional<String> athenzDnsSuffix();
-    Optional<String> ztsUrl();
     String zooKeeperSnapshotMethod();
     Integer zookeeperJuteMaxBuffer(); // in bytes
 
